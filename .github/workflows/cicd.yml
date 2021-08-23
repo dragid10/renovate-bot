@@ -14,24 +14,8 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    - uses: actions/setup-go@v2
+    - name: Self-hosted Renovate
+      uses: renovatebot/github-action@v21.30.0
       with:
-        go-version: '^1.13.1'
-    - run: |
-        # Run Renovate
-        
-        # Install NVM
-        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-        export NVM_DIR="$HOME/.nvm"
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-        nvm install --lts; npm i -g npm@latest
-
-        # in-between stuff
-        eval $(gimme stable)
-        npm i -g renovate
-
-        # Check Go version
-        go version
-
-        # Profit?
-        renovate;
+        configurationFile: config.js
+        token: ${{ secrets.RENOVATE_TOKEN }}
