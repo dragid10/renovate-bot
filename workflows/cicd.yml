@@ -1,8 +1,8 @@
-name: river/renovate-bot
+name: dragid10/renovate-bot
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
   schedule:
   - cron: "*/5 * * * *"
