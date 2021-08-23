@@ -1,8 +1,9 @@
 module.exports = {
-	platform: 'github',
-	repositories:
-		[
-        "dragid10/BCC",
-    ],
+	autodiscover: true,
+	autodiscoverFilter: "dragid10/*",
+	dryRun: true,
+	username: 'renovate-release',
+  	gitAuthor: 'Renovate Bot <bot@renovateapp.com>',
+  	platform: 'github',
 	logLevel: 'debug',
 };
