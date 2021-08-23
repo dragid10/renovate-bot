@@ -1,0 +1,21 @@
+name: dragid10/renovate-bot
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+  schedule:
+  - cron: "*/5 * * * *"
+env:
+  RENOVATE_TOKEN: "${{ secrets.RENOVATE_TOKEN }}"
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: Self-hosted Renovate
+      uses: renovatebot/github-action@v21.30.0
+      with:
+        configurationFile: config.js
+        token: ${{ secrets.RENOVATE_TOKEN }}
