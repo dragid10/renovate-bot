@@ -5,7 +5,7 @@ on:
     - main
   pull_request:
   schedule:
-  - cron: "*/5 * * * *"
+  - cron: "0 1 * * *"
 env:
   RENOVATE_TOKEN: "${{ secrets.RENOVATE_TOKEN }}"
 jobs:
